@@ -55,4 +55,29 @@ class TableViewController: UITableViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
+//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action,index in
+//
+//        }
+//        delete.backgroundColor = .red
+//        return [delete]
+//    }
+//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let info = UIContextualAction(style: .normal, title: "Info") { (ac:UIContextualAction, view:UIView, sucess:(Bool) -> Void) in
+            sucess(true)
+        }
+        info.backgroundColor = .blue
+        return UISwipeActionsConfiguration(actions: [info])
+    }
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .normal, title: "Delete") { (ac:UIContextualAction, view:UIView, sucess:(Bool) -> Void) in
+            sucess(true)
+
+        }
+        delete.backgroundColor = .red
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
 }
